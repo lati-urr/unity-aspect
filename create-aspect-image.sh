@@ -8,10 +8,10 @@ usage() {
     echo
     echo "Options:"
     echo "  -h, --help"
-    echo "  -v  --version"
-    echo "  -a, --aspect weight:height        change aspect ratio. default is 16:9."
-    echo "  -b, --background #color           decide add color.default is clear."
-    echo "  -o, --output PATH                 decide output path. default is same directory with input file."
+    echo "  -v, --version"
+    echo -e "  -a, --aspect\t\tweight:height\tchange aspect ratio. default is 16:9."
+    echo -e "  -b, --background\t#color\t\tdecide add color.default is clear."
+    echo -e "  -o, --output\t\tPATH\t\tdecide output path. default is same directory with input file."
     echo
     exit 1
 }
@@ -97,13 +97,12 @@ else
 fi
 
 if [ ! -z $COLOR ]; then
-    R_value=$(echo "obase=10; ibase=16; $(echo $COLOR | awk '{print substr($0,2,2)}')"|bc)
-    G_value=$(echo "obase=10; ibase=16; $(echo $COLOR | awk '{print substr($0,4,2)}')"|bc)
-    B_value=$(echo "obase=10; ibase=16; $(echo $COLOR | awk '{print substr($0,6,2)}')"|bc)
-    COLOR="\"rgb($R_value,$G_value,$B_value)\""
+    R_value=$(echo $((0x$(echo $COLOR | awk '{print substr($0,2,2)}'))))
+    G_value=$(echo $((0x$(echo $COLOR | awk '{print substr($0,4,2)}'))))
+    B_value=$(echo $((0x$(echo $COLOR | awk '{print substr($0,6,2)}'))))
+    COLOR="rgb($R_value,$G_value,$B_value)"
 else
     COLOR=none
 fi
 COMMAND="convert $INPUT -background $COLOR -gravity Center -extent ${resolution[0]}x${resolution[1]} $OUTPUT"
-
-$COMMAND
+exec $COMMAND
