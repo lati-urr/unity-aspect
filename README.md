@@ -17,14 +17,15 @@ sudo emerge -v imagemagick
 
 Options:
 
--h, --help
--v, --version
--a, --aspect      weight:height(default 16:9)
--b, --background  #color(default clear)
--o, --output      DIR_PATH(default IMAGE_FILE_PATH_DIR)
+-h, --help  
+-v, --version  
+-a, --aspect      weight:height(default 16:9)  
+-b, --background  #color(default clear)  
+-o, --output      DIR_PATH(default IMAGE_FILE_PATH_DIR)  
 
 
-output image file name is INPUT_FILE_NAME-resize
+出力ファイル名は入力ファイル名の末尾に-resizeをつけたものになります．  
+(ex. penguin.png -> penguin-resize.png)
 
 ## Example
 
