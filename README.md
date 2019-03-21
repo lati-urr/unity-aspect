@@ -30,21 +30,23 @@ output image file name is INPUT_FILE_NAME-resize
 
 ### > penguin.png
 
+![penguin](https://user-images.githubusercontent.com/34452361/54757421-892a4980-4c2d-11e9-8939-8a3af39ac0ec.png)
+
+
+### > penguin2.png
 ```
 ./create-aspect-image.sh penguin.png
 ```
+![penguin2](https://user-images.githubusercontent.com/34452361/54757450-99422900-4c2d-11e9-8993-0717b559925b.png)
 
-### > penguin2.png
-
+### > penguin3.png
 ```
 ./create-aspect-image.sh -b #97d4d9 penguin.png
 ```
+![penguin3](https://user-images.githubusercontent.com/34452361/54757518-bc6cd880-4c2d-11e9-8086-9270c173d646.png)
 
-### > penguin3.png
-
+### > penguin4.png
 ```
 ./create-aspect-image.sh -b #97d4d9 -a 3:2 penguin.png
 ```
-
-### > penguin4.png
-
+![penguin4](https://user-images.githubusercontent.com/34452361/54757548-c2fb5000-4c2d-11e9-9342-ad6efdfaa746.png)
